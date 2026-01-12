@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #001F3F;
+  --color-gold: #D4AF37;
+  --color-gold-light: #F4D03F;
+  --color-navy-light: #003366;
+}
+
+:root {
+  --navy: #001F3F;
+  --gold: #D4AF37;
+  --gold-light: #F4D03F;
+  --navy-light: #003366;
+}
+
+body {
+  font-family: 'Inter', 'Montserrat', sans-serif;
+  @apply bg-white text-navy;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.navy-gradient {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+}
