@@ -27,7 +27,7 @@ const Header = () => {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/90 backdrop-blur-md shadow-lg py-4" : "bg-transparent py-4"
+        scrolled ? "bg-[rgba(0,31,63,0.85)] backdrop-blur-md shadow-lg py-4" : "bg-transparent py-4"
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
@@ -40,16 +40,16 @@ const Header = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-10">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               to={link.path}
-              className={`text-sm font-semibold transition-colors hover:text-gold ${
+              className={`text-sm md:text-base font-medium transition-colors hover:text-gold ${
                 location.pathname === link.path
                   ? "text-gold"
                   : scrolled
-                  ? "text-navy"
+                  ? "text-white"
                   : "text-white"
               }`}
             >
@@ -58,7 +58,7 @@ const Header = () => {
           ))}
           <Link
             to="/contact"
-            className="bg-gold hover:bg-gold-light text-navy px-6 py-2 rounded-full text-sm font-bold transition-all transform hover:scale-105"
+            className="bg-gold hover:bg-gold-light text-navy px-6 py-3 rounded-full text-sm md:text-base font-bold transition-all transform hover:scale-105"
           >
             Get a Quote
           </Link>
@@ -66,7 +66,7 @@ const Header = () => {
 
         {/* Mobile Toggle */}
         <button
-          className={`md:hidden text-2xl ${scrolled ? "text-navy" : "text-white"}`}
+          className={`md:hidden text-2xl ${scrolled ? "text-white" : "text-white"}`}
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <HiX /> : <HiMenuAlt3 />}

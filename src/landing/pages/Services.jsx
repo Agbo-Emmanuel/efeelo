@@ -1,33 +1,50 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FiAirplay, FiTruck, FiBox, FiCheckCircle, FiShield, FiGlobe, FiMapPin } from "react-icons/fi";
+import { FiArrowRight, FiTruck, FiBox, FiCheckCircle, FiShield, FiGlobe, FiMapPin, FiShoppingBag, FiCoffee } from "react-icons/fi";
+import { FaWineGlass, FaShip } from "react-icons/fa6";
+import heroImage from "../../assets/hero_image.jpg";
 
 const Services = () => {
-  const coreServices = [
+  const services = [
     {
-      title: "Air and Sea Freight",
-      description: "Dedicated global shipping solutions ensuring your cargo reaches its destination efficiently via air or sea.",
-      icon: <FiAirplay />,
+      title: "Air & Sea Freight",
+      description: "Global logistics solutions ensuring your cargo reaches its destination via the most efficient routes.",
+      icon: <FaShip className="text-3xl" />,
     },
     {
-      title: "Customs Clearance and Brokerage",
-      description: "Hassle-free customs processing with our licensed brokers, ensuring full compliance and speed.",
-      icon: <FiBox />,
+      title: "Customs Clearance",
+      description: "Expert brokerage services to navigate complex regulations and ensure compliant trade.",
+      icon: <FiBox className="text-3xl" />,
     },
     {
-      title: "Warehousing and Distribution",
-      description: "Secure storage and smart distribution services for international enterprises and local firms.",
-      icon: <FiCheckCircle />,
+      title: "Wine Distribution",
+      description: "Curated supply of premium international wines and spirits for retailers and hospitality businesses.",
+      icon: <FaWineGlass className="text-3xl" />,
     },
     {
-      title: "Haulage and Inland Logistics",
-      description: "Efficient domestic transportation network across Nigeria for timely cargo delivery.",
-      icon: <FiTruck />,
+      title: "Hospitality Supply",
+      description: "End-to-end procurement of kitchen equipment and operational essentials for hotels.",
+      icon: <FiCoffee className="text-3xl" />,
     },
     {
-      title: "End-to-End Delivery Services",
+      title: "Supermarket Provisioning",
+      description: "Reliable sourcing of imported food products, meats, and retail goods.",
+      icon: <FiShoppingBag className="text-3xl" />,
+    },
+    {
+      title: "Warehousing",
+      description: "Secure storage and distribution services tailored for international and local enterprises.",
+      icon: <FiCheckCircle className="text-3xl" />,
+    },
+    {
+      title: "Haulage Logistics",
+      description: "Reliable inland transportation and distribution network across Nigeria.",
+      icon: <FiTruck className="text-3xl" />,
+    },
+    {
+      title: "End-to-End Delivery",
       description: "Complete logistics management from procurement to final doorstep delivery.",
-      icon: <FiShield />,
+      icon: <FiShield className="text-3xl" />,
     },
   ];
 
@@ -41,39 +58,68 @@ const Services = () => {
   ];
 
   return (
-    <div className="pt-24 min-h-screen bg-gray-50">
+    <div className="bg-gray-50 flex flex-col w-full">
       {/* Header */}
-      <section className="bg-navy py-20">
-        <div className="container mx-auto px-6">
+      <section 
+        className="relative min-h-[80vh] flex items-center overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed"
+        style={{
+          backgroundImage: `url(${heroImage})`,
+        }}
+      >
+        {/* Gradient Overlay */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            background: `
+              linear-gradient(to right, #001F3F 40%, rgba(0,31,63,0.85) 55%, rgba(0,31,63,0.1) 100%),
+              radial-gradient(circle at 80% 50%, transparent 0%, rgba(0,31,63,0.4) 100%)
+            `
+          }}
+        />
+
+        <div className="absolute inset-0 opacity-20 z-0">
+           <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-gold rounded-full blur-[150px]" />
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10 pt-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="max-w-3xl"
           >
-            <h1 className="text-4xl md:text-5xl text-white mb-6">Our <span className="text-gold">Service Offerings</span></h1>
-            <p className="text-gray-400 text-lg">Comprehensive and purposefully designed to meet the dynamic demands of modern trade and logistics.</p>
+            <h1 className="text-4xl md:text-5xl text-white font-bold mb-6">Our <span className="text-gold">Service Offerings</span></h1>
+            <p className="text-gray-300 text-lg leading-relaxed max-w-2xl">
+              Comprehensive and purposefully designed to meet the dynamic demands of modern trade and logistics.
+            </p>
           </motion.div>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-24">
+      <section className="py-24 bg-navy/5">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {coreServices.map((service, index) => (
+            {services.map((service, index) => (
               <motion.div
                 key={service.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -10 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white p-10 rounded-3xl border border-gray-100 hover:shadow-2xl transition-all group"
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="bg-white p-8 rounded-2xl border border-gray-200 hover:border-gold/30 hover:shadow-2xl transition-all group text-left relative overflow-hidden"
               >
-                <div className="w-16 h-16 bg-navy/5 text-navy group-hover:bg-navy group-hover:text-gold rounded-2xl flex items-center justify-center text-3xl mb-8 transition-colors">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gold/5 rounded-bl-[100px] -mr-4 -mt-4 transition-transform group-hover:scale-110" />
+                
+                <div className="w-16 h-16 bg-navy text-gold rounded-xl flex items-center justify-center mb-6 transition-transform group-hover:rotate-6 shadow-lg shadow-navy/20 relative z-10">
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-bold text-navy mb-4">{service.title}</h3>
-                <p className="text-gray-500 leading-relaxed text-sm">{service.description}</p>
+                
+                <h3 className="text-xl font-bold text-navy mb-3 group-hover:text-gold transition-colors">{service.title}</h3>
+                
+                <p className="text-gray-500 text-sm leading-relaxed mb-6">
+                  {service.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -112,10 +158,10 @@ const Services = () => {
       {/* Industries Served */}
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <div className="bg-white rounded-3xl p-12 shadow-sm border border-gray-100">
+          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
-                <h2 className="text-3xl font-bold text-navy mb-6">Specialized Sector Consulting</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-navy mb-6">Specialized Sector Consulting</h2>
                 <p className="text-gray-600 mb-8 leading-relaxed">
                   Our deep understanding of specialized sectors gives us a strategic advantage in handling sensitive, high-value, and time-critical shipments.
                 </p>
@@ -128,7 +174,7 @@ const Services = () => {
                   ))}
                 </ul>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="hidden md:grid grid-cols-2 gap-4">
                 <div className="h-48 bg-navy/5 rounded-2xl flex items-center justify-center"><FiMapPin className="text-4xl text-navy opacity-20" /></div>
                 <div className="h-48 bg-gold/5 rounded-2xl flex items-center justify-center mt-8"><FiBox className="text-4xl text-gold opacity-20" /></div>
               </div>

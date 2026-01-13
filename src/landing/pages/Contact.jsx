@@ -1,20 +1,41 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FiPhone, FiMail, FiMapPin, FiSend, FiClock } from "react-icons/fi";
+import heroImage from "../../assets/hero_image.jpg";
 
 const Contact = () => {
   return (
-    <div className="pt-24 min-h-screen">
+    <div className="w-full">
       {/* Header */}
-      <section className="bg-navy py-20 relative overflow-hidden">
-        <div className="container mx-auto px-6">
+      <section 
+        className="relative min-h-[80vh] flex items-center overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed"
+        style={{
+          backgroundImage: `url(${heroImage})`,
+        }}
+      >
+        {/* Gradient Overlay */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            background: `
+              linear-gradient(to right, #001F3F 40%, rgba(0,31,63,0.85) 55%, rgba(0,31,63,0.1) 100%),
+              radial-gradient(circle at 80% 50%, transparent 0%, rgba(0,31,63,0.4) 100%)
+            `
+          }}
+        />
+
+        <div className="absolute inset-0 opacity-20 z-0">
+           <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-gold rounded-full blur-[150px]" />
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10 pt-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center"
           >
-            <h1 className="text-4xl md:text-5xl text-white mb-6">Get in <span className="text-gold">Touch</span></h1>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            <h1 className="text-4xl md:text-5xl text-white font-bold mb-6">Get in <span className="text-gold">Touch</span></h1>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
               Ready to streamline your supply chain? Contact us for a quote or consultation on your next shipment.
             </p>
           </motion.div>
@@ -31,7 +52,7 @@ const Contact = () => {
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 flex items-start space-x-6"
+                className="bg-white p-8 rounded-3xl shadow-md border border-gray-100 flex items-start space-x-6"
               >
                 <div className="w-12 h-12 bg-gold/10 text-gold rounded-xl flex items-center justify-center shrink-0">
                   <FiPhone size={24} />
@@ -48,7 +69,7 @@ const Contact = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 flex items-start space-x-6"
+                className="bg-white p-8 rounded-3xl shadow-md border border-gray-100 flex items-start space-x-6"
               >
                 <div className="w-12 h-12 bg-gold/10 text-gold rounded-xl flex items-center justify-center shrink-0">
                   <FiMail size={24} />
@@ -65,7 +86,7 @@ const Contact = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 flex items-start space-x-6"
+                className="bg-white p-8 rounded-3xl shadow-md border border-gray-100 flex items-start space-x-6"
               >
                 <div className="w-12 h-12 bg-gold/10 text-gold rounded-xl flex items-center justify-center shrink-0">
                   <FiMapPin size={24} />
@@ -81,7 +102,7 @@ const Contact = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="bg-navy p-8 rounded-3xl shadow-lg text-white space-y-4"
+                className="bg-navy p-8 rounded-3xl shadow-md text-white space-y-4"
               >
                 <div className="flex items-center space-x-3 text-gold">
                   <FiClock size={20} />
@@ -106,9 +127,9 @@ const Contact = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-white p-10 md:p-16 rounded-[40px] shadow-2xl border border-gray-50"
+                className="bg-white p-8 md:p-16 rounded-[40px] shadow-xl border border-gray-50"
               >
-                <h2 className="text-3xl font-bold text-navy mb-8">Send Us a Message</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-navy mb-8">Send Us a Message</h2>
                 <form className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">

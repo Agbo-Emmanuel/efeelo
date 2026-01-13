@@ -12,17 +12,18 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="space-y-6">
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center justify-center md:justify-start space-x-2">
               <img 
                 src={logo} 
                 alt="EFEELO Logistics" 
-                className="h-10 md:h-12 w-auto object-contain brightness-0 invert" 
+                className="w-[120px] h-[80px] object-fill" 
+                // className="w-[120px] h-[80px] object-fill brightness-0 invert" 
               />
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-gray-400 text-sm leading-relaxed md:text-left text-center">
               Leading provider of customs clearance, freight forwarding, and supply-chain solutions with over a decade of proven industry experience.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex md:justify-start justify-center space-x-4">
               <a href="#" className="text-gray-400 hover:text-gold transition-colors"><FaFacebook size={18} /></a>
               <a href="#" className="text-gray-400 hover:text-gold transition-colors"><FaTwitter size={18} /></a>
               <a href="#" className="text-gray-400 hover:text-gold transition-colors"><FaLinkedin size={18} /></a>
@@ -31,9 +32,9 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="text-gold font-bold mb-6">Quick Links</h4>
-            <ul className="space-y-4 text-sm text-gray-400">
+          <div className="flex flex-col md:items-start items-center">
+            <h4 className="text-gold font-bold mb-6 md:text-start text-center">Quick Links</h4>
+            <ul className="space-y-4 text-sm text-gray-400 md:text-start text-center">
               <li><Link to="/" className="hover:text-white transition-colors">Home Page</Link></li>
               <li><Link to="/about" className="hover:text-white transition-colors">About Company</Link></li>
               <li><Link to="/services" className="hover:text-white transition-colors">Our Services</Link></li>
@@ -42,11 +43,14 @@ const Footer = () => {
           </div>
 
           {/* Core Services */}
-          <div>
-            <h4 className="text-gold font-bold mb-6">Core Services</h4>
-            <ul className="space-y-4 text-sm text-gray-400">
+          <div className="flex flex-col md:items-start items-center">
+            <h4 className="text-gold font-bold mb-6 md:text-start text-center">Core Services</h4>
+            <ul className="space-y-4 text-sm text-gray-400 md:text-start text-center">
               <li>Air & Sea Freight</li>
               <li>Customs Clearance</li>
+              <li>Wine Distribution</li>
+              <li>Hospitality Supply</li>
+              <li>Supermarket Provisioning</li>
               <li>Warehousing</li>
               <li>Haulage Logistics</li>
               <li>End-to-End Delivery</li>
@@ -54,9 +58,9 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div>
-            <h4 className="text-gold font-bold mb-6">Get In Touch</h4>
-            <ul className="space-y-4 text-sm text-gray-400">
+          <div className="flex flex-col md:items-start items-center">
+            <h4 className="text-gold font-bold mb-6 md:text-start text-center">Get In Touch</h4>
+            <ul className="space-y-4 text-sm text-gray-400 md:text-start text-center">
               <li className="flex items-start space-x-3">
                 <FaMapMarkerAlt className="text-gold mt-1" />
                 <span>Major Trade Corridors, Nigeria</span>
