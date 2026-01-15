@@ -13,17 +13,9 @@ const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
-    {
+
+     {
       id: 1,
-      image: heroImage,
-      subtitle: "Precision & Professionalism",
-      title: "Your Global Partner in",
-      highlight: "Logistics Excellence",
-      description: "EFEELO International Logistics is a leading provider of customs clearance, freight forwarding, and supply chain solutions with over a decade of proven expertise.",
-      cta: "Our Services",
-    },
-    {
-      id: 2,
       image: wineImage,
       subtitle: "Premium Selection",
       title: "Finest Wines &",
@@ -32,7 +24,7 @@ const Home = () => {
       cta: "Explore Wines",
     },
     {
-      id: 3,
+      id: 2,
       image: restaurant_image,
       subtitle: "Hospitality Solutions",
       title: "One-Stop Shop for",
@@ -41,7 +33,7 @@ const Home = () => {
       cta: "View Solutions",
     },
     {
-      id: 4,
+      id: 3,
       image: kitchenImage,
       subtitle: "Professional Grade",
       title: "Premium Kitchen",
@@ -50,7 +42,7 @@ const Home = () => {
       cta: "View Catalog",
     },
     {
-      id: 5,
+      id: 4,
       image: beefImage,
       subtitle: "Fresh & Reliable",
       title: "Premium Food &",
@@ -58,6 +50,17 @@ const Home = () => {
       description: "Reliable sourcing and delivery of imported meats and food products, handled with verified cold-chain integrity.",
       cta: "Contact Us",
     },
+
+    {
+      id: 5,
+      image: heroImage,
+      subtitle: "Precision & Professionalism",
+      title: "Your Global Partner in",
+      highlight: "Logistics Excellence",
+      description: "EFEELO International Logistics is a leading provider of customs clearance, freight forwarding, and supply chain solutions with over a decade of proven expertise.",
+      cta: "Our Services",
+    },
+   
   ];
 
   useEffect(() => {
@@ -72,6 +75,24 @@ const Home = () => {
 
   const services = [
     {
+      title: "Wine Distribution",
+      description: "Curated supply of premium international wines and spirits for retailers and hospitality businesses.",
+      icon: <FaWineGlass className="md:text-3xl text-xl" />,
+    },
+
+    {
+      title: "Supermarket Provisioning",
+      description: "Reliable sourcing of imported food products, meats, and retail goods.",
+      icon: <FiShoppingBag className="md:text-3xl text-xl" />,
+    },
+
+    {
+      title: "Hospitality Supply",
+      description: "End-to-end procurement of kitchen equipment and operational essentials for hotels.",
+      icon: <FiCoffee className="md:text-3xl text-xl" />,
+    },
+    
+    {
       title: "Air & Sea Freight",
       description: "Global logistics solutions ensuring your cargo reaches its destination via the most efficient routes.",
       icon: <FaShip className="md:text-3xl text-xl" />,
@@ -81,21 +102,7 @@ const Home = () => {
       description: "Expert brokerage services to navigate complex regulations and ensure compliant trade.",
       icon: <FiBox className="md:text-3xl text-xl" />,
     },
-    {
-      title: "Wine Distribution",
-      description: "Curated supply of premium international wines and spirits for retailers and hospitality businesses.",
-      icon: <FaWineGlass className="md:text-3xl text-xl" />,
-    },
-    {
-      title: "Hospitality Supply",
-      description: "End-to-end procurement of kitchen equipment and operational essentials for hotels.",
-      icon: <FiCoffee className="md:text-3xl text-xl" />,
-    },
-    {
-      title: "Supermarket Provisioning",
-      description: "Reliable sourcing of imported food products, meats, and retail goods.",
-      icon: <FiShoppingBag className="md:text-3xl text-xl" />,
-    },
+
     {
       title: "Warehousing",
       description: "Secure storage and distribution services tailored for international and local enterprises.",
