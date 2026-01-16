@@ -132,10 +132,10 @@ const Contact = () => {
                 <div>
                   <h4 className="font-bold text-navy mb-1">Call Us</h4>
                   <p className="text-gray-500 text-sm">
-                    Direct Line: +234 (0) XXX XXX XXXX
+                    Direct Line: +234 (0) 802 311 6158
                   </p>
                   <p className="text-gray-500 text-sm">
-                    Customer Support: +234 (0) YYY YYY YYYY
+                    Customer Support: +234 (0) 802 311 6158
                   </p>
                 </div>
               </motion.div>
@@ -153,10 +153,11 @@ const Contact = () => {
                 <div>
                   <h4 className="font-bold text-navy mb-1">Email Us</h4>
                   <p className="text-gray-500 text-sm">
-                    Quotes: info@effeelo.com
+                    Contact: admin@efe-elointernationalservices.com
                   </p>
                   <p className="text-gray-500 text-sm">
-                    Admin: operations@effeelo.com
+                    Our Support:robinson@efe-elointernationalservices.com
+
                   </p>
                 </div>
               </motion.div>
@@ -174,7 +175,7 @@ const Contact = () => {
                 <div>
                   <h4 className="font-bold text-navy mb-1">Location</h4>
                   <p className="text-gray-500 text-sm leading-relaxed">
-                    Head Office Address, Lagos, Nigeria.
+                    Amuwo Odofin, Lagos, Nigeria.
                   </p>
                 </div>
               </motion.div>
@@ -263,8 +264,12 @@ const Contact = () => {
                       onChange={onChange}
                       className="w-full bg-gray-50 border-none rounded-xl px-4 py-4 focus:ring-2 focus:ring-gold outline-none transition-all"
                     >
+                      <option>Wine Distribution</option>
                       <option>Freight Quote</option>
+                      <option>Warehousing</option>
+                      <option>Hospitality Supply</option>
                       <option>Customs Clearance</option>
+                      <option>Supermarket Provisioning</option>
                       <option>Warehousing Inquiry</option>
                       <option>General Support</option>
                     </select>
