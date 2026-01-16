@@ -63,7 +63,7 @@ const Footer = () => {
             <ul className="space-y-4 text-sm text-gray-400 md:text-start text-center">
               <li className="flex items-start space-x-3">
                 <FaMapMarkerAlt className="text-gold mt-1" />
-                <span>Major Trade Corridors, Nigeria</span>
+                <span>Amuwo Odofin, Lagos, Nigeria</span>
               </li>
               <li className="flex items-center space-x-3">
                 <FaPhoneAlt className="text-gold" />
