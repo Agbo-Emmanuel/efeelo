@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { FiPhone, FiMail, FiMapPin, FiSend, FiClock } from "react-icons/fi";
 import heroImage from "../../assets/hero_image.jpg";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const Contact = () => {
   const [values, setValues] = useState({
@@ -11,6 +12,22 @@ const Contact = () => {
     subject: "Freight Quote",
     message: "",
   });
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState({});
+
+  const validate = () => {
+    let tempErrors = {};
+    if (!values.fullName.trim()) tempErrors.fullName = "Full Name is required";
+    if (!values.email.trim()) {
+      tempErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(values.email)) {
+      tempErrors.email = "Email is invalid";
+    }
+    if (!values.message.trim()) tempErrors.message = "Message is required";
+    
+    setErrors(tempErrors);
+    return Object.keys(tempErrors).length === 0;
+  };
 
   const onChange = (e) => {
     setValues((prevValues) => ({
@@ -19,16 +36,41 @@ const Contact = () => {
     }));
   };
 
-  const sendMessage = (e) => {
+  const sendMessage = async (e) => {
     e.preventDefault();
+    if (!validate()) return;
+    
+    setLoading(true);
     try {
-      const body = { values };
+      // const body = values;
       const url =
         "https://effeelo-backend.onrender.com/api/v1/send-contact-mail";
-      const response = axios.post(url, body);
-      console.log(response);
+      const response = await axios.post(url, values);
+
+      Swal.fire({
+        title: "Success!",
+        text: "Your message has been sent successfully.",
+        icon: "success",
+      });
+      setValues({
+        fullName: "",
+        email: "",
+        subject: "Freight Quote",
+        message: "",
+      });
+      setErrors({});
     } catch (error) {
       console.log(error);
+
+      Swal.fire({
+        title: "Error!",
+        text: `${
+          error.response?.data?.error || "Something went wrong. Please try again."
+        }`,
+        icon: "error",
+      });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -183,9 +225,14 @@ const Contact = () => {
                         name="fullName"
                         value={values.fullName}
                         onChange={onChange}
-                        className="w-full bg-gray-50 border-none rounded-xl px-4 py-4 focus:ring-2 focus:ring-gold outline-none transition-all"
+                        className={`w-full bg-gray-50 border border-transparent rounded-xl px-4 py-4 focus:ring-2 focus:ring-gold outline-none transition-all ${
+                          errors.fullName ? "!border-red-500" : ""
+                        }`}
                         placeholder="Adaimoni Roland"
                       />
+                      {errors.fullName && (
+                        <p className="text-red-500 text-xs mt-1 ml-1">{errors.fullName}</p>
+                      )}
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-bold text-navy">
@@ -196,9 +243,14 @@ const Contact = () => {
                         name="email"
                         value={values.email}
                         onChange={onChange}
-                        className="w-full bg-gray-50 border-none rounded-xl px-4 py-4 focus:ring-2 focus:ring-gold outline-none transition-all"
+                        className={`w-full bg-gray-50 border border-transparent rounded-xl px-4 py-4 focus:ring-2 focus:ring-gold outline-none transition-all ${
+                          errors.email ? "!border-red-500" : ""
+                        }`}
                         placeholder="name@company.com"
                       />
+                      {errors.email && (
+                        <p className="text-red-500 text-xs mt-1 ml-1">{errors.email}</p>
+                      )}
                     </div>
                   </div>
                   <div className="space-y-2">
@@ -221,21 +273,27 @@ const Contact = () => {
                     <label className="text-sm font-bold text-navy">
                       Message
                     </label>
-                    <textarea
-                      rows="5"
-                      name="message"
-                      value={values.message}
-                      onChange={onChange}
-                      className="w-full bg-gray-50 border-none rounded-xl px-4 py-4 focus:ring-2 focus:ring-gold outline-none transition-all resize-none"
-                      placeholder="How can we help you?"
-                    ></textarea>
-                  </div>
+                      <textarea
+                        rows="5"
+                        name="message"
+                        value={values.message}
+                        onChange={onChange}
+                        className={`w-full bg-gray-50 border border-transparent rounded-xl px-4 py-4 focus:ring-2 focus:ring-gold outline-none transition-all resize-none ${
+                          errors.message ? "!border-red-500" : ""
+                        }`}
+                        placeholder="How can we help you?"
+                      ></textarea>
+                      {errors.message && (
+                        <p className="text-red-500 text-xs mt-1 ml-1">{errors.message}</p>
+                      )}
+                    </div>
                   <button
                     type="submit"
-                    className="bg-navy text-gold w-full py-5 rounded-xl font-bold flex items-center justify-center space-x-3 hover:bg-navy/90 transition-all transform hover:scale-[1.01] active:scale-95 cursor-pointer"
+                    disabled={loading}
+                    className="bg-navy text-gold w-full py-5 rounded-xl font-bold flex items-center justify-center space-x-3 hover:bg-navy/90 transition-all transform hover:scale-[1.01] active:scale-95 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
                   >
-                    <span>Send Message</span>
-                    <FiSend />
+                    <span>{loading ? "Sending..." : "Send Message"}</span>
+                    {!loading && <FiSend />}
                   </button>
                 </form>
               </motion.div>
