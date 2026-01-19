@@ -1,6 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaLinkedin,
+  FaInstagram,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import logo from "../../assets/efeelo_logo.png";
 
 const Footer = () => {
@@ -13,38 +21,89 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-6">
             <div className="flex items-center justify-center md:justify-start space-x-2">
-              <img 
-                src={logo} 
-                alt="EFEELO Logistics" 
-                className="w-[120px] h-[80px] object-fill" 
-                // className="w-[120px] h-[80px] object-fill brightness-0 invert" 
+              <img
+                src={logo}
+                alt="EFEELO Logistics"
+                className="w-[120px] h-[80px] object-fill"
+                // className="w-[120px] h-[80px] object-fill brightness-0 invert"
               />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed md:text-left text-center">
-              Leading provider of customs clearance, freight forwarding, and supply-chain solutions with over a decade of proven industry experience.
+              Leading provider of customs clearance, freight forwarding, and
+              supply-chain solutions with over a decade of proven industry
+              experience.
             </p>
             <div className="flex md:justify-start justify-center space-x-4">
-              <a href="#" className="text-gray-400 hover:text-gold transition-colors"><FaFacebook size={18} /></a>
-              <a href="#" className="text-gray-400 hover:text-gold transition-colors"><FaTwitter size={18} /></a>
-              <a href="#" className="text-gray-400 hover:text-gold transition-colors"><FaLinkedin size={18} /></a>
-              <a href="#" className="text-gray-400 hover:text-gold transition-colors"><FaInstagram size={18} /></a>
+              <a
+                href="#"
+                className="text-gray-400 hover:text-gold transition-colors"
+              >
+                <FaFacebook size={18} />
+              </a>
+              <a
+                href="#"
+                className="text-gray-400 hover:text-gold transition-colors"
+              >
+                <FaXTwitter size={18} />
+              </a>
+              <a
+                href="#"
+                className="text-gray-400 hover:text-gold transition-colors"
+              >
+                <FaLinkedin size={18} />
+              </a>
+              <a
+                href="#"
+                className="text-gray-400 hover:text-gold transition-colors"
+              >
+                <FaInstagram size={18} />
+              </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="flex flex-col md:items-start items-center">
-            <h4 className="text-gold font-bold mb-6 md:text-start text-center">Quick Links</h4>
+            <h4 className="text-gold font-bold mb-6 md:text-start text-center">
+              Quick Links
+            </h4>
             <ul className="space-y-4 text-sm text-gray-400 md:text-start text-center">
-              <li><Link to="/" className="hover:text-white transition-colors">Home Page</Link></li>
-              <li><Link to="/about" className="hover:text-white transition-colors">About Company</Link></li>
-              <li><Link to="/services" className="hover:text-white transition-colors">Our Services</Link></li>
-              <li><Link to="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
+              <li>
+                <Link to="/" className="hover:text-white transition-colors">
+                  Home Page
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  className="hover:text-white transition-colors"
+                >
+                  About Company
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services"
+                  className="hover:text-white transition-colors"
+                >
+                  Our Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contact"
+                  className="hover:text-white transition-colors"
+                >
+                  Contact Us
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Core Services */}
           <div className="flex flex-col md:items-start items-center">
-            <h4 className="text-gold font-bold mb-6 md:text-start text-center">Core Services</h4>
+            <h4 className="text-gold font-bold mb-6 md:text-start text-center">
+              Core Services
+            </h4>
             <ul className="space-y-4 text-sm text-gray-400 md:text-start text-center">
               <li>Wine Distribution</li>
               <li>Supermarket Provisioning</li>
@@ -59,7 +118,9 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="flex flex-col md:items-start items-center">
-            <h4 className="text-gold font-bold mb-6 md:text-start text-center">Get In Touch</h4>
+            <h4 className="text-gold font-bold mb-6 md:text-start text-center">
+              Get In Touch
+            </h4>
             <ul className="space-y-4 text-sm text-gray-400 md:text-start text-center">
               <li className="flex items-start space-x-3">
                 <FaMapMarkerAlt className="text-gold mt-1" />
@@ -78,10 +139,17 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-500 text-xs text-center md:text-left">
-          <p>© {currentYear} EFE-ELO International Services Provider. All rights reserved.</p>
+          <p>
+            © {currentYear} EFE-ELO International Services Provider. All rights
+            reserved.
+          </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-white">Privacy Policy</a>
-            <a href="#" className="hover:text-white">Terms of Service</a>
+            <a href="#" className="hover:text-white">
+              Privacy Policy
+            </a>
+            <a href="#" className="hover:text-white">
+              Terms of Service
+            </a>
           </div>
         </div>
       </div>
