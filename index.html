@@ -9,6 +9,38 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- WhatsApp Floating Button -->
+    <a
+      href="https://wa.me/9153526073"
+      class="whatsapp_float"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+        alt="WhatsApp"
+        width="55"
+        height="55"
+      />
+    </a>
+
+    <style>
+      .whatsapp_float {
+        position: fixed;
+        bottom: 100px;
+        right: 25px;
+        background-color: #25d366;
+        border-radius: 50%;
+        padding: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        transition: transform 0.25s ease-in-out, box-shadow 0.25s;
+      }
+      .whatsapp_float:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      }
+    </style>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
