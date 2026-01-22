@@ -9,12 +9,27 @@
   </head>
   <body>
     <div id="root"></div>
+
+     <!-- Email Floating Button -->
+    <a
+      href="mailto:admin@efe-elointernationalservices.com"
+      class="email_float"
+      title="Email us"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Mail_%28iOS%29.svg"
+        alt="Email"
+        width="50"
+        height="50"
+      />
+    </a>
     <!-- WhatsApp Floating Button -->
     <a
       href="https://wa.me/9153526073"
       class="whatsapp_float"
       target="_blank"
       rel="noopener noreferrer"
+      title="Chat on Whatsapp"
     >
       <img
         src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
@@ -27,7 +42,7 @@
     <style>
       .whatsapp_float {
         position: fixed;
-        bottom: 100px;
+        bottom: 25px;
         right: 25px;
         background-color: #25d366;
         border-radius: 50%;
@@ -40,6 +55,25 @@
         transform: scale(1.1);
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
       }
+
+      /* Email Floating */
+      .email_float {
+        position: fixed;
+        bottom: 100px; /* stacked above WhatsApp */
+        right: 25px;
+        background-color: #2563eb; /* Tailwind blue-600 */
+        border-radius: 50%;
+        padding: 12px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        transition: transform 0.25s ease-in-out, box-shadow 0.25s;
+      }
+
+      .email_float:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      }
+
     </style>
     <script type="module" src="/src/main.jsx"></script>
   </body>
